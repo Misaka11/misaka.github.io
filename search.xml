@@ -4,9 +4,65 @@
   
     
     <entry>
+      <title>hexo+coding搭建博客</title>
+      <link href="/2020/09/11/hexo-coding-da-jian-bo-ke/"/>
+      <url>/2020/09/11/hexo-coding-da-jian-bo-ke/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h1><p>一直有搭建个人博客的想法，但是苦于没有合适服务器和没时间，加上技术选择困难症，一直拖了好久。奈何搭建这种云端服务非常有意思，一旦开始做就停不下来，所以花了3天左右时间搭建了一个博客，基本能开始写博客，至于文章分类、添加各种功能后面再慢慢搞。</p><p>在该过程中，最大的困难是，有多种技术方案可以选择，各有优劣（主要是穷），花在纠结上的时间太多了。比如网站是用服务器加Wordpress搭建动态网站，还是hexo+GitHub搭建静态网站。是托管在GitHub、Gitee还是Coding.net上，图床选择是继续白嫖代码仓库还是白嫖七牛云，博客Markdown是在线写还是在本地写。如果有钱的话，这些问题都不是问题，问题就是我只想白嫖。</p><p>目前网站的技术方案是hexo+coding pages托管+coding图床+PicGo图床上传+Typora写Markdown。</p><p>在此感谢各位大佬们写的技术帖，本站才能逐步搭建起来。</p><p>hexo+github+coding 搭建博客教程：</p><p>​    超逸：<a href="https://blog.csdn.net/weixin_42429718/article/details/104378207?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase">https://blog.csdn.net/weixin_42429718/article/details/104378207?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase</a></p><p>​    洪卫：<a href="https://sunhwee.com/posts/6e8839eb.html">https://sunhwee.com/posts/6e8839eb.html</a></p><p>​    过客～励む：<a href="https://yafine-blog.cn/posts/4ab2.html">https://yafine-blog.cn/posts/4ab2.html</a></p><p>图床搭建+Typora关联图床：<a href="https://www.cnblogs.com/MemoryDrive/articles/13296996.html">https://www.cnblogs.com/MemoryDrive/articles/13296996.html</a></p><h1 id="hexo静态网站"><a href="#hexo静态网站" class="headerlink" title="hexo静态网站"></a>hexo静态网站</h1><h1 id="coding-pages托管"><a href="#coding-pages托管" class="headerlink" title="coding pages托管"></a>coding pages托管</h1><h1 id="coding图床"><a href="#coding图床" class="headerlink" title="coding图床"></a>coding图床</h1><h1 id="PicGo图床上传"><a href="#PicGo图床上传" class="headerlink" title="PicGo图床上传"></a>PicGo图床上传</h1><h1 id="Typora编辑器"><a href="#Typora编辑器" class="headerlink" title="Typora编辑器"></a>Typora编辑器</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> study </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 托管 </tag>
+            
+            <tag> 图床 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>一次Vue前端正式开发记录</title>
+      <link href="/2020/09/11/yi-ci-vue-qian-duan-zheng-shi-kai-fa-ji-lu/"/>
+      <url>/2020/09/11/yi-ci-vue-qian-duan-zheng-shi-kai-fa-ji-lu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Git-使用"><a href="#Git-使用" class="headerlink" title="Git 使用"></a>Git 使用</h1><p>以前虽然也有git使用经验，不过仅限于自己使用上传代码到GitHub，缺乏团队协作的经验。这次开发团队算我共四人，使用GitLab协同开发前端。在此仅介绍常用的使用命令。具体的git使用教程将发布在干货篇。</p><h2 id="克隆团队代码"><a href="#克隆团队代码" class="headerlink" title="克隆团队代码"></a>克隆团队代码</h2><p>团队协作中，主程序将项目创建完成后，我们这些打杂的就要把项目克隆下来了。在空闲文件夹打开命令行，输入命令。</p><pre><code>git clone 团队代码仓库地址</code></pre><p><img src="https://shiyize.coding.net/p/services/d/imagesbed/git/raw/master/img/2020/9/11/1.png" alt="1"></p><h2 id="更新代码"><a href="#更新代码" class="headerlink" title="更新代码"></a>更新代码</h2><p>每当早上睁眼第一件事，就是将代码更新到团队最新代码。</p><pre><code>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code></pre><p>比如，要取回<code>origin</code>主机的<code>development</code>分支，与本地的<code>master</code>分支合并，需要写成下面这样 </p><pre><code>git pull origin development:master</code></pre><p>如果远程分支要与当前分支合并，则冒号后面的部分可以省略。上面命令可以简写为：</p><pre><code>git pull origin development</code></pre><p>如果当前分支与远程分支存在追踪关系，<code>git pull</code>就可以省略远程分支名。如果当前分支只有一个追踪分支，连远程主机名都可以省略。所以一般直接省略即可。</p><pre><code>git pull</code></pre><p>补充: 每次提交代码前，如果别人也修改了代码并提交，需要先pull下代码，再push提交。如果有冲突的话，需要先手动合并之后再push。</p><p>参考链接：<a href="https://www.yiibai.com/git/git_pull.html">https://www.yiibai.com/git/git_pull.html</a></p><h2 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h2><p>写完自己的代码，自然就要提交上去了。</p><pre><code>git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</code></pre><p>push这个命令与pull非常相似，在同一个项目开发过程中，一般可以直接省略参数。</p><pre><code>git push</code></pre><p>参考链接：<a href="https://www.yiibai.com/git/git_push.html">https://www.yiibai.com/git/git_push.html</a></p><h2 id="上传本地项目到GitHub的两种方法"><a href="#上传本地项目到GitHub的两种方法" class="headerlink" title="上传本地项目到GitHub的两种方法"></a>上传本地项目到GitHub的两种方法</h2><p>此部分是本次开发过程的格外补充，用于上传代码到自己的代码仓库。</p><h3 id="第一种方法"><a href="#第一种方法" class="headerlink" title="第一种方法"></a>第一种方法</h3><p>先在GitHub创建一个新的代码仓库。然后用git clone命令下载到本地</p><p>这时候文件夹内容和仓库内容保持一致，一般为空或者有个README.md。</p><p>然后，把自己的项目代码复制到该文件夹下。然后依次输入以下命令</p><pre><code>git add .        （注：别忘记后面的.，此操作是把Test文件夹下面的文件都添加进来）git commit  -m  &quot;提交信息&quot;  （注：“提交信息”里面换成你需要，如“first commit”）git push -u origin master   （注：此操作目的是把本地仓库push到github上面，此步骤需要你输入帐号和密码）</code></pre><p>代码上传完成。</p><h3 id="第二种方法"><a href="#第二种方法" class="headerlink" title="第二种方法"></a>第二种方法</h3><p>先把本地项目代码变成代码仓库。</p><pre><code>git initgit add .git commit -m &quot;提交信息&quot;</code></pre><p>然后将自己本地仓库和远程仓库进行连接</p><pre><code>git remote add origin 仓库地址</code></pre><p>关联好之后，就可以提交代码了</p><pre><code>git push -u origin master</code></pre><p>由于新建的远程仓库是空的，所以要加上-u这个参数，等远程仓库里面有了内容之后，就可以去掉-u了。一般来说就已经完成了，但这里有个坑。如果远程仓库是空的，则该过程没问题。但如果远程仓库不为空，如有个README.md，则会报一个failed to push some refs to <a href="https://github.com/guyibang/TEST2.git%E7%9A%84%E9%94%99%E3%80%82">https://github.com/guyibang/TEST2.git的错。</a></p><p><img src="https://shiyize.coding.net/p/services/d/imagesbed/git/raw/master/img/2020/9/11/20170414212947320.png" alt="20170414212947320"></p><p>这是由于你新创建的那个仓库里面的README文件不在本地仓库目录中，这时我们可以通过以下命令先将内容合并以下：</p><pre><code>git pull --rebase origin master</code></pre><p>这时候再push就可以了。</p><p>参考链接：<a href="https://blog.csdn.net/Lucky_LXG/article/details/77849212">https://blog.csdn.net/Lucky_LXG/article/details/77849212</a></p><h1 id="前端部分"><a href="#前端部分" class="headerlink" title="前端部分"></a>前端部分</h1><p>在本次开发过程中，体会到了完全按甲方要求来的前端开发流程。如何让每个元素位置精确到像素、各种组件的视觉效果实现的和设计图一模一样等。主要包含四个部分：蓝湖、CSS、Element组件、Echarts组件。</p><h2 id="蓝湖"><a href="#蓝湖" class="headerlink" title="蓝湖"></a>蓝湖</h2><p>网址：<a href="https://lanhuapp.com/">https://lanhuapp.com/</a></p><p><img src="https://shiyize.coding.net/p/services/d/imagesbed/git/raw/master/img/2020/9/11/image-20200911164141811.png" alt="image-20200911164141811"></p><p>蓝湖是一个Webbase的UI设计的工具。UI设计师在PS中画好图后，上传到蓝湖平台，可以进行切图。前端开发人员可以点击每个元素，获得每个元素的位置信息，颜色信息，字体信息等等详细参数，并可以直接复制到CSS中，大大加快了开发速度，并很容易使得实际实现效果和设计图保持一致。</p><h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><p>本次CSS学到的知识点有：</p><ol><li>使用marign、padding等控制div的位置。</li><li>background颜色设置。字体设置。</li><li>使用CSS画圆角矩形。</li><li>使用::before ::after伪元素</li><li>全局CSS和局部CSS</li></ol><h2 id="Element"><a href="#Element" class="headerlink" title="Element"></a>Element</h2><p>网址：<a href="https://element.eleme.io/#/zh-CN">https://element.eleme.io/#/zh-CN</a></p><p>Element是饿了么公司开发的Vue前端组件，使用组件可以快速完成前端开发。</p><p>主要技术：</p><ol><li>布局。非常重要，用来控制元素的位置。把元素按行和列排布，每行是24个单位。</li><li>表格Table。相关样式设置。</li><li>弹框Dialog。相关样式设置。</li><li>加载Loading。向后台请求数据比较慢的时候，应加上加载。</li><li>其它可探索的组件参见官网。</li></ol><h2 id="Echarts"><a href="#Echarts" class="headerlink" title="Echarts"></a>Echarts</h2><p>网址：<a href="https://echarts.apache.org/examples/zh/index.html">https://echarts.apache.org/examples/zh/index.html</a></p><p>Echarts为开发者提供了大量数据可视化的组件。我开发时候涉及到一个仪表盘的样式调整。</p><p><img src="https://shiyize.coding.net/p/services/d/imagesbed/git/raw/master/img/2020/9/11/image-20200911170430640.png" alt="image-20200911170430640"></p><p>而官网提供的仪表盘长这样</p><p><img src="https://shiyize.coding.net/p/services/d/imagesbed/git/raw/master/img/2020/9/11/image-20200911170559542.png" alt="image-20200911170559542"></p><p>最难的三个参数是颜色渐变、刻度盘刻度从颜色外伸出来、指针的图案。</p><p>颜色渐变网上有代码，直接把几个颜色填进去即可。</p><p>设计图中的刻度是在颜色圈之外开始伸长，但官网提供的都是在颜色圈内开始伸长，调了好久都没找到相应的参数。最后灵机一动，把表盘宽度调成负数，成功~~</p><p>指针的图案最后也没有很好的解决，一种解决方案是可以把设计图中的指针图片直接切下来贴上去。具体怎么实现有点麻烦，最后我只设置了颜色渐变，和设计图达到类似的效果。</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>经过这次开发经历，git使用更加熟练。以前做的前端都是实现功能就好，至于视觉效果并不在意，这次开发过程中学到了CSS的重要性，以及配合蓝湖实现像素级精确的效果。同时也体验了想变就变的甲方对开发计划打乱的影响。</p><p>宿迁饭店为啥各类肠子这么多？？</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> study </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Vue </tag>
+            
+            <tag> git </tag>
+            
+            <tag> CSS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
-      <link href="/2020/09/07/hello-world/"/>
-      <url>/2020/09/07/hello-world/</url>
+      <link href="/2020/09/09/hello-world/"/>
+      <url>/2020/09/09/hello-world/</url>
       
         <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
       
