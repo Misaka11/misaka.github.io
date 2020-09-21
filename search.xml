@@ -4,11 +4,38 @@
   
     
     <entry>
+      <title>解锁网易云无版权和VIP歌曲</title>
+      <link href="/2020/09/21/jie-suo-wang-yi-yun-wu-ban-quan-he-vip-ge-qu/"/>
+      <url>/2020/09/21/jie-suo-wang-yi-yun-wu-ban-quan-he-vip-ge-qu/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>舍友买了一个OpenWrt的路由器，支持很多插件。其中一个插件比较有意思，打开之后，网易云的无版权歌曲和VIP歌曲都可以听。经过研究发现，原理是采用 [QQ/虾米/百度/酷狗/酷我/咕咪/JOOX]等音源 替换网易云变灰歌曲链接，然后设置代理转发这部分歌曲即可。本文将介绍免费使用这一功能的几种方法。</p><h2 id="懒人法："><a href="#懒人法：" class="headerlink" title="懒人法："></a>懒人法：</h2><p>在网上搜索“解锁网易云音乐小工具”并下载，打开后界面如下。Windows保持默认设置即可。需要注意的两点：</p><ol><li>端口号不能和其它程序冲突。端口号用于设置网易云的代理转发。</li><li>音源排序决定替换音乐的顺序。音源顺序不同可能会导致有的歌曲版本不同。</li></ol><p><img src="https://shiyize.coding.net/p/services/d/imagesbed/git/raw/master/img/2020/9/21/202083857124952.jpg" alt="202083857124952"></p><p>打开网易云音乐，设置服务器ip（一般为本机）和端口号（上面工具设置的端口号），点击确定，即可完成。</p><p><img src="https://shiyize.coding.net/p/services/d/imagesbed/git/raw/master/img/2020/9/21/image-20200921140721937.png" alt="image-20200921140721937"></p><p>效果展示：</p><p><img src="https://shiyize.coding.net/p/services/d/imagesbed/git/raw/master/img/2020/9/21/image-20200921141551911.png" alt="image-20200921141551911"></p><h2 id="DIY法："><a href="#DIY法：" class="headerlink" title="DIY法："></a>DIY法：</h2><p>该工具作者的源码都是公开的，github地址：<a href="https://github.com/nondanee/UnblockNeteaseMusic">https://github.com/nondanee/UnblockNeteaseMusic</a></p><p>里面有很多玩法，最简单的就是在自己服务器上搭建一个方便使用。</p><p>先把代码拷贝下来</p><pre><code>git clone https://github.com/nondanee/UnblockNeteaseMusic</code></pre><p>进入文件夹并使用node启动app.js。没有node自行安装。</p><pre><code> cd UnblockNeteaseMusic/ node app.js</code></pre><p>然后在网易云下设置代理即可。</p><p>如果想后台运行，使用nohup和&amp;，并exit退出中断。如果想选择音源的顺序，可以加上参数-o，例：</p><pre><code>nohup node app.js qq kugou kuwo migu &amp;exit</code></pre><h2 id="其它补充："><a href="#其它补充：" class="headerlink" title="其它补充："></a>其它补充：</h2><p>手机平板等配置稍微麻烦那么一点，如果部署在路由器中，那其它设备就不需要设置了。一些参考链接：</p><p><a href="https://spoience.com/unlock-163.html">https://spoience.com/unlock-163.html</a></p><p><a href="https://github.com/maxlicheng/luci-app-unblockmusic">https://github.com/maxlicheng/luci-app-unblockmusic</a></p><p><a href="https://github.com/nining377/UnblockMusicPro_Xposed/releases">https://github.com/nining377/UnblockMusicPro_Xposed/releases</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> study </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网易云 </tag>
+            
+            <tag> 白嫖 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hexo+coding搭建博客</title>
       <link href="/2020/09/11/hexo-coding-da-jian-bo-ke/"/>
       <url>/2020/09/11/hexo-coding-da-jian-bo-ke/</url>
       
-        <content type="html"><![CDATA[<h1 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h1><p>一直有搭建个人博客的想法，但是苦于没有合适服务器和没时间，加上技术选择困难症，一直拖了好久。奈何搭建这种云端服务非常有意思，一旦开始做就停不下来，所以花了3天左右时间搭建了一个博客，基本能开始写博客，至于文章分类、添加各种功能后面再慢慢搞。</p><p>在该过程中，最大的困难是，有多种技术方案可以选择，各有优劣（主要是穷），花在纠结上的时间太多了。比如网站是用服务器加Wordpress搭建动态网站，还是hexo+GitHub搭建静态网站。是托管在GitHub、Gitee还是Coding.net上，图床选择是继续白嫖代码仓库还是白嫖七牛云，博客Markdown是在线写还是在本地写。如果有钱的话，这些问题都不是问题，问题就是我只想白嫖。</p><p>目前网站的技术方案是hexo+coding pages托管+coding图床+PicGo图床上传+Typora写Markdown。</p><p>在此感谢各位大佬们写的技术帖，本站才能逐步搭建起来。</p><p>hexo+github+coding 搭建博客教程：</p><p>​    超逸：<a href="https://blog.csdn.net/weixin_42429718/article/details/104378207?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase">https://blog.csdn.net/weixin_42429718/article/details/104378207?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase</a></p><p>​    洪卫：<a href="https://sunhwee.com/posts/6e8839eb.html">https://sunhwee.com/posts/6e8839eb.html</a></p><p>​    过客～励む：<a href="https://yafine-blog.cn/posts/4ab2.html">https://yafine-blog.cn/posts/4ab2.html</a></p><p>图床搭建+Typora关联图床：<a href="https://www.cnblogs.com/MemoryDrive/articles/13296996.html">https://www.cnblogs.com/MemoryDrive/articles/13296996.html</a></p><h1 id="hexo静态网站"><a href="#hexo静态网站" class="headerlink" title="hexo静态网站"></a>hexo静态网站</h1><h1 id="coding-pages托管"><a href="#coding-pages托管" class="headerlink" title="coding pages托管"></a>coding pages托管</h1><h1 id="coding图床"><a href="#coding图床" class="headerlink" title="coding图床"></a>coding图床</h1><h1 id="PicGo图床上传"><a href="#PicGo图床上传" class="headerlink" title="PicGo图床上传"></a>PicGo图床上传</h1><h1 id="Typora编辑器"><a href="#Typora编辑器" class="headerlink" title="Typora编辑器"></a>Typora编辑器</h1>]]></content>
+        <content type="html"><![CDATA[<h2 id="前情"><a href="#前情" class="headerlink" title="前情"></a>前情</h2><p>一直有搭建个人博客的想法，但是苦于没有合适服务器和没时间，加上技术选择困难症，一直拖了好久。奈何搭建这种云端服务非常有意思，一旦开始做就停不下来，所以花了3天左右时间搭建了一个博客，基本能开始写博客，至于文章分类、添加各种功能后面再慢慢搞。</p><p>在该过程中，最大的困难是，有多种技术方案可以选择，各有优劣（主要是穷），花在纠结上的时间太多了。比如网站是用服务器加Wordpress搭建动态网站，还是hexo+GitHub搭建静态网站。是托管在GitHub、Gitee还是Coding.net上，图床选择是继续白嫖代码仓库还是白嫖七牛云，博客Markdown是在线写还是在本地写。如果有钱的话，这些问题都不是问题，问题就是我只想白嫖。</p><p>目前网站的技术方案是hexo+coding pages托管+coding图床+PicGo图床上传+Typora写Markdown。</p><p>在此感谢各位大佬们写的技术帖，本站才能逐步搭建起来。</p><p>hexo+github+coding 搭建博客教程：</p><p>​    超逸：<a href="https://blog.csdn.net/weixin_42429718/article/details/104378207?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase">https://blog.csdn.net/weixin_42429718/article/details/104378207?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase</a></p><p>​    洪卫：<a href="https://sunhwee.com/posts/6e8839eb.html">https://sunhwee.com/posts/6e8839eb.html</a></p><p>​    过客～励む：<a href="https://yafine-blog.cn/posts/4ab2.html">https://yafine-blog.cn/posts/4ab2.html</a></p><p>图床搭建+Typora关联图床：<a href="https://www.cnblogs.com/MemoryDrive/articles/13296996.html">https://www.cnblogs.com/MemoryDrive/articles/13296996.html</a></p><h2 id="hexo静态网站"><a href="#hexo静态网站" class="headerlink" title="hexo静态网站"></a>hexo静态网站</h2><h2 id="coding-pages托管"><a href="#coding-pages托管" class="headerlink" title="coding pages托管"></a>coding pages托管</h2><h2 id="coding图床"><a href="#coding图床" class="headerlink" title="coding图床"></a>coding图床</h2><h2 id="PicGo图床上传"><a href="#PicGo图床上传" class="headerlink" title="PicGo图床上传"></a>PicGo图床上传</h2><h2 id="Typora编辑器"><a href="#Typora编辑器" class="headerlink" title="Typora编辑器"></a>Typora编辑器</h2>]]></content>
       
       
       <categories>
