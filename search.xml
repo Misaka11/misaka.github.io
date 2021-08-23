@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title></title>
+      <link href="/2021/08/23/shu-mei-pai-wu-ping-an-zhuang-ubuntu-20.04-server/"/>
+      <url>/2021/08/23/shu-mei-pai-wu-ping-an-zhuang-ubuntu-20.04-server/</url>
+      
+        <content type="html"><![CDATA[<h1 id="树莓派无屏安装ubuntu-20-04-server"><a href="#树莓派无屏安装ubuntu-20-04-server" class="headerlink" title="树莓派无屏安装ubuntu 20.04 server"></a>树莓派无屏安装ubuntu 20.04 server</h1><h2 id="安装系统镜像"><a href="#安装系统镜像" class="headerlink" title="安装系统镜像"></a>安装系统镜像</h2><p>硬件：</p><p>​    树莓派4b，8G内存，16G内存卡，读卡器</p><p>软件：</p><p>​    Raspberry PI Imager</p><p>镜像：</p><p>​    <a href="https://ubuntu.com/download/raspberry-pi">https://ubuntu.com/download/raspberry-pi</a></p><p>​    ubuntu 20.04 LTS</p><h2 id="配置wifi，ssh"><a href="#配置wifi，ssh" class="headerlink" title="配置wifi，ssh"></a>配置wifi，ssh</h2><p>重新插拔读卡器，在弹出的boot盘中创建空的SSH文件，并在net*.conf（忘了）中添加wifi信息</p><h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><pre><code># 备份sudo cp -p /etc/apt/sources.list /etc/apt/sources.list.bak# 打开sudo vim /etc/apt/sources.list# 替换，是树莓派的源:1,$s/ports.ubuntu.com\/ubuntu-ports/mirrors.aliyun.com\/ubuntu-ports\//g:wq# 更新软件列表sudo apt-get update# 更新软件sudo apt-get upgrade</code></pre><h2 id="安装Nodejs"><a href="#安装Nodejs" class="headerlink" title="安装Nodejs"></a>安装Nodejs</h2><pre><code>#下载ARMv8的nodejs包，这里下的是v14.17.5wget https://nodejs.org/dist/v14.17.5/node-v14.17.5-linux-arm64.tar.xz#解压tar xvf node-v14.17.5-linux-arm64.tar.xz#改名并更换路径mv node-v14.17.5-linux-arm64/ nodejsmv nodejs/ /usr/local/# 这里不用建立软连接，而用环境变量，这样解决npm安装全局模块找不到的问题export NODE_PATH=/usr/local/nodejs/binexport PATH=$&#123;PATH&#125;:$&#123;NODE_PATH&#125;echo &quot;PATH=\$&#123;PATH&#125;:$&#123;NODE_PATH&#125;&quot; &gt; ~/.profile# 或者对全部用户有效，则把~/.profile改为/etc/profile</code></pre><h3 id="Linux-usr-bin与-usr-local-bin使用区别"><a href="#Linux-usr-bin与-usr-local-bin使用区别" class="headerlink" title="Linux /usr/bin与/usr/local/bin使用区别"></a>Linux /usr/bin与/usr/local/bin使用区别</h3><p>首先注意usr 指 Unix System Resource，而不是User<br> 然后通常：<br> /usr/bin下面的都是系统预装的可执行程序，会随着系统升级而改变。<br> /usr/local/bin目录是给用户放置自己的可执行程序的地方，推荐放在这里，不会被系统升级而覆盖同名文件。</p><p>如果两个目录下有相同的可执行程序，谁优先执行受到PATH环境变量的影响，比如我的一台服务器的PATH变量为。<br> echo $PATH</p><p>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</p><p>/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/dean/bin<br> 这里/usr/local/bin优先于/usr/bin, 一般都是如此。</p><h3 id="npm换源"><a href="#npm换源" class="headerlink" title="npm换源"></a>npm换源</h3><pre><code>npm config set registry https://registry.npm.taobao.org#或者用cnpmnpm install -g cnpm --registry=https://registry.npm.taobao.org#查看源npm config get registry</code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>解锁网易云无版权和VIP歌曲</title>
       <link href="/2020/09/21/jie-suo-wang-yi-yun-wu-ban-quan-he-vip-ge-qu/"/>
       <url>/2020/09/21/jie-suo-wang-yi-yun-wu-ban-quan-he-vip-ge-qu/</url>
